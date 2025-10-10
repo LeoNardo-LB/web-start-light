@@ -6,6 +6,11 @@ spring:
     driverClassName: org.h2.Driver
     username: sa
     password: password
+    # For PostgreSQL
+    # url: jdbc:postgresql://localhost:5432/your_database
+    # username: your_username
+    # password: your_password
+    # driver-class-name: org.postgresql.Driver
   h2:
     console:
       settings:

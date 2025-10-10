@@ -122,9 +122,9 @@ mvn archetype:generate -DarchetypeCatalog=local
 mvn archetype:generate -DarchetypeCatalog=local ^
   -DinteractiveMode=false ^
   -DarchetypeGroupId=smm.archetype ^
-  -DarchetypeArtifactId=web-quick-start-basic ^
+  -DarchetypeArtifactId=web-start-light ^
   -DarchetypeVersion=1.0.0 ^
-  -DgroupId=org.leonardo.dev ^
+  -DgroupId=org.ssm ^
   -DartifactId=agent-web ^
   -Dversion=0.0.1-SNAPSHOT
 ```

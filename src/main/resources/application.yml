@@ -2,10 +2,11 @@ spring:
   application:
     name: quickstart-light
   datasource:
+    # For H2
     url: jdbc:h2:./data_h2/mydb;AUTO_SERVER=TRUE
-    driverClassName: org.h2.Driver
     username: sa
     password: password
+    driverClassName: org.h2.Driver
     # For PostgreSQL
     # url: jdbc:postgresql://localhost:5432/your_database
     # username: your_username

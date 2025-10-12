@@ -30,21 +30,21 @@ import java.util.stream.Collectors;
 @Order
 @Component
 public class BizLogAspect {
-    
-    private final Map<PersistenceType, PersistenceHandler> persistenceHandlerMap;
-    
+
+    private final Map<PersistenceType, PersistenceHandler> handlerMap;
+
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
-    
+
     @Autowired
     public BizLogAspect(List<PersistenceHandler> persistenceHandlers) {
-        
-        this.persistenceHandlerMap = persistenceHandlers.stream().collect(Collectors.toMap(PersistenceHandler::getPersistenceType, s -> s));
+
+        this.handlerMap = persistenceHandlers.stream().collect(Collectors.toMap(PersistenceHandler::getPersistenceType, s -> s));
     }
-    
+
     @Pointcut("@annotation(smm.archetype.util.log.BizLog)")
     public void bizLogCut() {
     }
-    
+
     @Around(value = "bizLogCut()")
     public Object doAround(ProceedingJoinPoint joinPoint) throws Throwable {
         // 获取注解信息
@@ -71,11 +71,11 @@ public class BizLogAspect {
             BizLogDto.setEndTime(Instant.now());
             executorService.execute(() -> {
                 PersistenceType[] persistence = bizLog.persistence();
-                for (PersistenceType persistenceType : persistence) {
-                    Optional.ofNullable(persistenceHandlerMap.get(persistenceType)).ifPresent(handler -> handler.persist(BizLogDto));
+                for (PersistenceType one : persistence) {
+                    Optional.ofNullable(handlerMap.get(one)).ifPresent(handler -> handler.persist(BizLogDto));
                 }
             });
         }
     }
-    
+
 }

@@ -9,6 +9,8 @@ import smm.archetype.util.log.handler.stringify.JdkStringifyHandler;
 import smm.archetype.util.log.handler.stringify.StringifyHandler;
 import smm.archetype.util.log.handler.stringify.StringifyType;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.time.Duration;
 import java.util.List;
 import java.util.Map;
@@ -50,7 +52,12 @@ public class DbPersistenceHandler implements PersistenceHandler {
         logDo.setArgString(handler.stringify(BizLogDto.getArgs()));
         logDo.setResultString(handler.stringify(BizLogDto.getResult()));
         logDo.setThreadName(BizLogDto.getThreadName());
-        Optional.ofNullable(BizLogDto.getError()).ifPresent(e -> logDo.setException(e.toString()));
+        Optional.ofNullable(BizLogDto.getError()).ifPresent(e -> {
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            logDo.setException(sw.toString());
+        });
         logDo.setTimeCost(Duration.between(BizLogDto.getStartTime(), BizLogDto.getEndTime()).toMillis());
         logDo.setStartTime(BizLogDto.getStartTime());
         logDo.setEndTime(BizLogDto.getEndTime());

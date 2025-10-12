@@ -1,9 +1,12 @@
 package smm.archetype.repository.dos;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import smm.archetype.entity.base.BaseDo;
 
 import java.time.Instant;
@@ -13,28 +16,31 @@ import java.time.Instant;
  * @since 2025/7/14
  * 日志持久化对象
  */
-@Data
-@EqualsAndHashCode(callSuper = true)
+@Getter
+@Setter
 @Entity
 @Table(name = "log")
 public class LogDo extends BaseDo {
-    
+
     private String biz;
-    
+
     private String method;
-    
+
+    @Column(columnDefinition = "TEXT")
     private String argString;
-    
+
+    @Column(columnDefinition = "TEXT")
     private String resultString;
-    
+
     private String threadName;
-    
+
+    @Column(columnDefinition = "TEXT")
     private String exception;
-    
+
     private Long timeCost;
-    
+
     private Instant startTime;
-    
+
     private Instant endTime;
-    
+
 }

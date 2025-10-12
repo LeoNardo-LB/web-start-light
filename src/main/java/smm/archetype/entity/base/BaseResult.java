@@ -11,52 +11,60 @@ import smm.archetype.entity.enums.ResultCode;
  */
 @Data
 public class BaseResult<T> {
-    
+
     /**
      * code
      */
     private int code;
-    
+
+    /**
+     * 是否成功
+     */
+    private boolean success;
+
     /**
      * 信息
      */
     private String message;
-    
+
     /**
      * 数据
      */
     private T data;
-    
+
     /**
      * traceId
      */
     private String traceId;
-    
+
     /**
      * requestId
      */
     private String requestId;
-    
+
     public static BaseResult<Void> fail() {
         return fail(ResultCode.FAIL);
     }
-    
+
     public static BaseResult<Void> fail(ResultCode code) {
         return fail(code, code.getMessage());
     }
-    
+
     public static BaseResult<Void> fail(ResultCode code, String msg) {
-        BaseResult<Void> BaseResult = new BaseResult<>();
-        BaseResult.code = code.getCode();
-        BaseResult.message = msg;
-        return BaseResult;
+        BaseResult<Void> result = new BaseResult<>();
+        result.code = code.getCode();
+        result.success = false;
+        result.message = msg;
+        return result;
     }
-    
-    public BaseResult<T> success(T data) {
-        this.code = ResultCode.SUCCESS.getCode();
-        this.message = ResultCode.SUCCESS.getMessage();
-        this.data = data;
-        return this;
+
+    public static <T> BaseResult<T> success(T data) {
+        BaseResult<T> result = new BaseResult<>();
+        result.code = ResultCode.SUCCESS.getCode();
+        result.message = ResultCode.SUCCESS.getMessage();
+        result.success = true;
+        result.data = data;
+        return result;
     }
-    
+
 }

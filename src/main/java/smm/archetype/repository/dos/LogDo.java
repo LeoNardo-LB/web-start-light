@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import smm.archetype.entity.base.BaseEntity;
+import smm.archetype.entity.base.BaseDo;
 
 import java.time.Instant;
 
@@ -17,7 +17,7 @@ import java.time.Instant;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "log")
-public class LogDo extends BaseEntity {
+public class LogDo extends BaseDo {
     
     private String biz;
     

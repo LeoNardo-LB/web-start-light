@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import smm.archetype.entity.base.BasePageRequest;
 import smm.archetype.entity.base.BasePageResult;
 import smm.archetype.repository.LogRepository;
-import smm.archetype.repository.dos.LogDo;
+import smm.archetype.repository.LogDo;
 import smm.archetype.util.log.BizLog;
 import smm.archetype.util.log.handler.persistence.PersistenceType;
 

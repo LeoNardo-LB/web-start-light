@@ -2,7 +2,6 @@ package smm.archetype.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import smm.archetype.repository.dos.LogDo;
 
 /**
  * @author Leonardo

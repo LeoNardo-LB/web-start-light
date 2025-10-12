@@ -2,7 +2,7 @@ package smm.archetype.util.log.handler.persistence;
 
 import org.springframework.stereotype.Component;
 import smm.archetype.repository.LogRepository;
-import smm.archetype.repository.dos.LogDo;
+import smm.archetype.repository.LogDo;
 import smm.archetype.util.log.BizLog;
 import smm.archetype.util.log.BizLogDto;
 import smm.archetype.util.log.handler.stringify.JdkStringifyHandler;

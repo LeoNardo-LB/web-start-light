@@ -2,8 +2,8 @@ package smm.archetype.controller.global;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import smm.archetype.entity.base.BaseResult;
-import smm.archetype.entity.base.BizException;
+import smm.archetype.entity.api.BaseResult;
+import smm.archetype.entity.api.BizException;
 import smm.archetype.entity.enums.ResultCode;
 
 /**

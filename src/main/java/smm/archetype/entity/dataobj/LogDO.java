@@ -1,11 +1,11 @@
-package smm.archetype.repository;
+package smm.archetype.entity.dataobj;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-import smm.archetype.entity.base.BaseDo;
+import smm.archetype.entity.api.BaseDO;
 
 import java.time.Instant;
 
@@ -18,7 +18,7 @@ import java.time.Instant;
 @Setter
 @Entity
 @Table(name = "log")
-public class LogDo extends BaseDo {
+public class LogDO extends BaseDO {
 
     private String biz;
 

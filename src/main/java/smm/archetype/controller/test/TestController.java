@@ -4,10 +4,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import smm.archetype.entity.base.BasePageRequest;
-import smm.archetype.entity.base.BasePageResult;
+import smm.archetype.entity.api.BasePageRequest;
+import smm.archetype.entity.api.BasePageResult;
+import smm.archetype.entity.dataobj.LogDO;
 import smm.archetype.repository.LogRepository;
-import smm.archetype.repository.LogDo;
 import smm.archetype.util.log.BizLog;
 import smm.archetype.util.log.handler.persistence.PersistenceType;
 
@@ -45,8 +45,8 @@ public class TestController {
     }
     
     @GetMapping("logs")
-    public BasePageResult<LogDo> logs(BasePageRequest request) {
-        Page<LogDo> all = logRepository.findAll(request.toJpaType());
+    public BasePageResult<LogDO> logs(BasePageRequest request) {
+        Page<LogDO> all = logRepository.findAll(request.toJpaType());
         return BasePageResult.fromPage(all);
     }
     

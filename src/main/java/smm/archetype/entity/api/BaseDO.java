@@ -1,4 +1,4 @@
-package smm.archetype.entity.base;
+package smm.archetype.entity.api;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
@@ -21,7 +21,7 @@ import java.time.Instant;
 @Getter
 @Setter
 @MappedSuperclass
-public abstract class BaseDo {
+public abstract class BaseDO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

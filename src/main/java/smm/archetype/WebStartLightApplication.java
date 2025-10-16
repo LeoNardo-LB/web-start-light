@@ -26,8 +26,10 @@ public class WebStartLightApplication implements CommandLineRunner {
     public String appName;
 
     @Value("${springdoc.swagger-ui.path}")
-    public String openapi;
+    public String openapiUrl;
 
+    @Value("${springdoc.api-docs.path}")
+    public String apiDocUrl;
     public static void main(String[] args) {
         SpringApplication.run(WebStartLightApplication.class, args);
     }
@@ -35,8 +37,9 @@ public class WebStartLightApplication implements CommandLineRunner {
     @Override
     public void run(String... args) {
         log.info("[{}]应用启动成功!", appName);
-        log.info("本地URL地址: {}", String.format("http://127.0.0.1:%s%s", port, contextPath));
-        log.info("测试API地址: {}", String.format("http://127.0.0.1:%s%s%s", port, contextPath, openapi));
+        log.info("Request URL: {}", String.format("http://127.0.0.1:%s%s", port, contextPath));
+        log.info("Swagger URL: {}", String.format("http://127.0.0.1:%s%s%s", port, contextPath, openapiUrl));
+        log.info("API-Doc URL: {}", String.format("http://127.0.0.1:%s%s%s", port, contextPath, apiDocUrl));
     }
 
 }

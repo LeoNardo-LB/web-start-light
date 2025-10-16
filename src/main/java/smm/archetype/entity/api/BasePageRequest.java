@@ -1,4 +1,4 @@
-package smm.archetype.entity.base;
+package smm.archetype.entity.api;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

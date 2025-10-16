@@ -1,8 +1,8 @@
 package smm.archetype.util.log.handler.persistence;
 
 import org.springframework.stereotype.Component;
+import smm.archetype.entity.dataobj.LogDO;
 import smm.archetype.repository.LogRepository;
-import smm.archetype.repository.LogDo;
 import smm.archetype.util.log.BizLog;
 import smm.archetype.util.log.BizLogDto;
 import smm.archetype.util.log.handler.stringify.JdkStringifyHandler;
@@ -46,7 +46,7 @@ public class DbPersistenceHandler implements PersistenceHandler {
         StringifyType stringify = bizLog.stringify();
         StringifyHandler handler = Optional.ofNullable(stringifyHandlerMap.get(stringify)).orElse(new JdkStringifyHandler());
         // 构建日志并保存
-        LogDo logDo = new LogDo();
+        LogDO logDo = new LogDO();
         logDo.setBiz(bizLog.value());
         logDo.setMethod(BizLogDto.getSignature().toLongString());
         logDo.setArgString(handler.stringify(BizLogDto.getArgs()));

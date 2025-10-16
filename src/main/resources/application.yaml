@@ -3,15 +3,15 @@ spring:
     name: quickstart-light
   datasource:
     # For H2
-    # url: jdbc:h2:./data_h2/mydb;AUTO_SERVER=TRUE
-    # username: sa
-    # password: password
-    # driverClassName: org.h2.Driver
+    url: jdbc:h2:./data_h2/mydb;AUTO_SERVER=TRUE
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
     # For PostgreSQL
-    url: jdbc:postgresql://localhost:15432/interview_assistant
-    username: ssm_interview_assistant
-    password: ssm_interview_assistant
-    driver-class-name: org.postgresql.Driver
+    # url: jdbc:postgresql://localhost:15432/interview_assistant
+    # username: ssm_interview_assistant
+    # password: ssm_interview_assistant
+    # driver-class-name: org.postgresql.Driver
   h2:
     console:
       settings:
@@ -23,8 +23,8 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        # dialect: org.hibernate.dialect.H2Dialect
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: org.hibernate.dialect.H2Dialect
+        # dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
 
 server:
@@ -34,7 +34,10 @@ server:
 
 springdoc:
   show-actuator: true
+  api-docs:
+    path: /v3/api-docs
   swagger-ui:
     path: /openapi-doc.html
+
 logging:
   config: classpath:logback-spring.xml

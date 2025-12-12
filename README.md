@@ -121,12 +121,12 @@ mvn archetype:generate -DarchetypeCatalog=local
 ```shell
 mvn archetype:generate -DarchetypeCatalog=local ^
   -DinteractiveMode=false ^
-  -DarchetypeGroupId=smm.archetype ^
+  -DarchetypeGroupId=org.smm.archetype ^
   -DarchetypeArtifactId=web-start-light ^
-  -DarchetypeVersion=1.0.0 ^
+  -DarchetypeVersion=1.0.1 ^
   -DgroupId=org.ssm ^
-  -DartifactId=agent-web ^
-  -Dversion=0.0.1-SNAPSHOT
+  -DartifactId=web-demo ^
+  -Dversion=1.0.0-SNAPSHOT
 ```
 
 > 注意`^`后不能有任意其他字符，否则会被windwos终端识别成下一行导致失败

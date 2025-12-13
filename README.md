@@ -49,7 +49,7 @@ cd  .\_output\archetype\
 [INFO] Total time:  0.728 s
 [INFO] Finished at: 2025-07-16T02:21:46+08:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-archetype-plugin:3.4.0:integration-test (default-integration-test) on project web-start-light:
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-archetype-plugin:3.4.0:integration-test (default-integration-test) on project web-quick-start-light:
 [ERROR] Archetype IT 'basic' failed: Error merging velocity templates: Unable to find resource 'archetype-resources/testing/pom.xml'
 [ERROR] -> [Help 1]
 [ERROR]
@@ -84,7 +84,7 @@ target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-m
     <archetypes>
         <archetype>
             <groupId>org.smm.archetype</groupId>
-            <artifactId>web-start-light</artifactId>
+            <artifactId>web-quick-start-light</artifactId>
             <version>1.0.0</version>
             <description>Parent pom providing dependency and plugin management for applications built with Maven</description>
         </archetype>
@@ -122,7 +122,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 mvn archetype:generate -DarchetypeCatalog=local ^
   -DinteractiveMode=false ^
   -DarchetypeGroupId=org.smm.archetype ^
-  -DarchetypeArtifactId=web-start-light ^
+  -DarchetypeArtifactId=web-quick-start-light ^
   -DarchetypeVersion=1.0.1 ^
   -DgroupId=org.ssm ^
   -DartifactId=web-demo ^
@@ -135,7 +135,7 @@ mvn archetype:generate -DarchetypeCatalog=local ^
 
 ```shell
 archetype.groupId=org.smm.archetype
-archetype.artifactId=web-start-light
+archetype.artifactId=web-quick-start-light
 archetype.version=1.0.0
 # 排除的文件
 excludePatterns=**/.idea/**,**/target/*,logs/**,modules/**,**/*.iml,**/logs,**/logs/*,**/logs/**,README.md,data_h2/**
